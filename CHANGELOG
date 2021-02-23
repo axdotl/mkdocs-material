@@ -1,3 +1,46 @@
+mkdocs-material-7.0.0 (2021-02-22)
+
+  * Added support for deploying multiple versions
+  * Added support for integrating a language selector
+  * Added support for rendering admonitions as inline blocks
+  * Rewrite of the underlying reactive architecture
+  * Removed Webpack in favor of reactive build strategy (-480 dependencies)
+  * Fixed keyboard navigation for code blocks after content tabs switch
+
+mkdocs-material-6.2.8 (2021-02-04)
+
+  * Updated Japanese and Polish translations
+  * Fixed #2261: Print dialog auto-closing when using instant loading
+
+mkdocs-material-6.2.7+insiders-1.17.0 (2021-01-31)
+
+  * Added support for section index pages
+
+mkdocs-material-6.2.7 (2021-01-31)
+
+  * Fixed #2251: Updated Docker image to latest Alpine Linux
+
+mkdocs-material-6.2.6+insiders-1.16.1 (2021-01-26)
+
+  * Fixed #2249: Instant loading + sticky tabs result in invalid links
+  * Fixed #2248: Search highlighting URL parameter always added
+  * Fixed #2235: Version selector doesn't select current version for aliases
+
+mkdocs-material-6.2.6 (2021-01-26)
+
+  * Added Bulgarian translations
+  * Fixed #2233: Search not shown when using header autohiding
+
+mkdocs-material-6.2.5+insiders-1.16.0 (2021-01-17)
+
+  * Added latest release to repository info (GitHub)
+  * Slight facelift of repository info (lighter fonts, spacing and icons)
+
+mkdocs-material-6.2.5 (2021-01-17)
+
+  * Fixed syntax error in Swedish translations
+  * Optimized navigation partials to improve build speed for huge docs
+
 mkdocs-material-6.2.4 (2021-01-09)
 
   * Fixed #2156: Missing syntax highlighting for binary numbers
@@ -35,7 +78,7 @@ mkdocs-material-6.2.0 (2020-12-22)
   * Added support for navigation sections
   * Added support for navigation expansion
   * Added support for integrating table of contents into navigation
-  * Added support for auto-hiding header on scroll
+  * Added support for autohiding header on scroll
   * Added support for hiding navigation and table of contents per page
   * Added support for arbitrary items in navigation tabs
   * Refactored navigation tabs to simplify grouping behavior

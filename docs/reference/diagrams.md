@@ -42,7 +42,7 @@ load and initialize the [Mermaid.js][1] runtime when a page includes a [fenced
 - [x] Support for both, light and dark color schemes
 
 _While it's also possible to integrate [Mermaid.js][1] using existing
-third-party solutions[^2], the new native integration is recommended as it
+third-party plugins[^2], the new native integration is recommended as it
 ensures interoperability with all Material for MkDocs features._
 
   [^1]:
@@ -54,8 +54,8 @@ ensures interoperability with all Material for MkDocs features._
   [^2]:
     If you don't want to use the native integration, [mkdocs-mermaid2-plugin][8]
     might be a good alternative. However, note that this plugin cannot be used
-    in conjunction with the [mkdocs-minify-plugin][9] and doesn't integrate
-    natively.
+    in conjunction with the [mkdocs-minify-plugin][9] and doesn't adapt to
+    dark mode.
 
   [2]: ../insiders.md
   [3]: https://facelessuser.github.io/pymdown-extensions/extensions/superfences/

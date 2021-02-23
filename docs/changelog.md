@@ -6,6 +6,34 @@ template: overrides/main.html
 
 ## Material for MkDocs
 
+### 7.0.0 <small>_ February 22, 2021</small>
+
+- Added support for deploying multiple versions
+- Added support for integrating a language selector
+- Added support for rendering admonitions as inline blocks
+- Rewrite of the underlying reactive architecture
+- Removed Webpack in favor of reactive build strategy (-480 dependencies)
+- Fixed keyboard navigation for code blocks after content tabs switch
+
+### 6.2.8 <small>_ February 4, 2021</small>
+
+- Updated Japanese and Polish translations
+- Fixed #2261: Print dialog auto-closing when using instant loading
+
+### 6.2.7 <small>_ January 31, 2021</small>
+
+- Fixed #2251: Updated Docker image to latest Alpine Linux
+
+### 6.2.6 <small>_ January 26, 2021</small>
+
+- Added Bulgarian translations
+- Fixed #2233: Search not shown when using header autohiding
+
+### 6.2.5 <small>_ January 17, 2021</small>
+
+- Fixed syntax error in Swedish translations
+- Optimized navigation partials to improve build speed for huge docs
+
 ### 6.2.4 <small>_ January 9, 2021</small>
 
 - Fixed #2156: Missing syntax highlighting for binary numbers
@@ -30,7 +58,7 @@ template: overrides/main.html
 - Added support for navigation sections
 - Added support for navigation expansion
 - Added support for integrating table of contents into navigation
-- Added support for auto-hiding header on scroll
+- Added support for autohiding header on scroll
 - Added support for hiding navigation and table of contents per page
 - Added support for arbitrary items in navigation tabs
 - Refactored navigation tabs to simplify grouping behavior
