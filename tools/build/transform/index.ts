@@ -22,10 +22,10 @@
 
 import { createHash } from "crypto"
 import { build as esbuild } from "esbuild"
-import * as fs from "fs/promises"
 import * as path from "path"
 import postcss from "postcss"
 import {
+  NEVER,
   Observable,
   concat,
   defer,
@@ -33,6 +33,7 @@ import {
   of
 } from "rxjs"
 import {
+  catchError,
   endWith,
   ignoreElements,
   switchMap
@@ -40,7 +41,7 @@ import {
 import { render as sass } from "sass"
 import { promisify } from "util"
 
-import { base, mkdir } from "../_"
+import { base, mkdir, write } from "../_"
 
 /* ----------------------------------------------------------------------------
  * Helper types
@@ -76,10 +77,12 @@ const root = new RegExp(`file://${path.resolve(".")}/`, "g")
  * @returns File with digest
  */
 function digest(file: string, data: string): string {
-  const hash = createHash("sha256").update(data).digest("hex")
-  return process.argv.includes("--optimize")
-    ? file.replace(/\b(?=\.)/, `.${hash.slice(0, 8)}.min`)
-    : file
+  if (process.argv.includes("--optimize")) {
+    const hash = createHash("sha256").update(data).digest("hex")
+    return file.replace(/\b(?=\.)/, `.${hash.slice(0, 8)}.min`)
+  } else {
+    return file
+  }
 }
 
 /* ----------------------------------------------------------------------------
@@ -129,17 +132,21 @@ export function transformStyle(
           }
         })
       ),
+      catchError(err => {
+        console.log(err.formatted || err.message)
+        return NEVER
+      }),
       switchMap(({ css, map }) => {
         const file = digest(options.to, css)
         return concat(
           mkdir(path.dirname(file)),
-          defer(() => merge(
-            fs.writeFile(`${file}.map`, `${map}`.replace(root, "")),
-            fs.writeFile(`${file}`, css.replace(
+          merge(
+            write(`${file}.map`, `${map}`.replace(root, "")),
+            write(`${file}`, css.replace(
               options.from,
               path.basename(file)
             )),
-          ))
+          )
         )
           .pipe(
             ignoreElements(),
@@ -161,6 +168,7 @@ export function transformScript(
 ): Observable<string> {
   return defer(() => esbuild({
     entryPoints: [options.from],
+    target: "es2015",
     write: false,
     bundle: true,
     sourcemap: true,
@@ -179,13 +187,13 @@ export function transformScript(
         const file = digest(options.to, js)
         return concat(
           mkdir(path.dirname(file)),
-          defer(() => merge(
-            fs.writeFile(`${file}.map`, map),
-            fs.writeFile(`${file}`, js.replace(
+          merge(
+            write(`${file}.map`, `${map}`),
+            write(`${file}`, js.replace(
               /(sourceMappingURL=)(.*)/,
-              `$1${path.basename(file)}\n`
+              `$1${path.basename(file)}.map\n`
             )),
-          ))
+          )
         )
           .pipe(
             ignoreElements(),

@@ -6,6 +6,15 @@ template: overrides/main.html
 
 ## Material for MkDocs Insiders
 
+### 2.1.0 <small>_ February 26, 2021</small>
+
+- Added support for anchor tracking
+
+### 2.0.0 <small>_ February 24, 2021</small>
+
+- Migrated Insiders to the new architecture
+- Swapped color palette toggle configuration
+
 ### 1.17.0 <small>_ January 31, 2021</small>
 
 - Added support for section index pages

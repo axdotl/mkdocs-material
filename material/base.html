@@ -27,7 +27,7 @@
         <link rel="canonical" href="{{ page.canonical_url }}">
       {% endif %}
       <link rel="shortcut icon" href="{{ config.theme.favicon | url }}">
-      <meta name="generator" content="mkdocs-{{ mkdocs_version }}, mkdocs-material-7.0.0">
+      <meta name="generator" content="mkdocs-{{ mkdocs_version }}, mkdocs-material-7.0.3">
     {% endblock %}
     {% block htmltitle %}
       {% if page and page.meta and page.meta.title %}
@@ -39,7 +39,7 @@
       {% endif %}
     {% endblock %}
     {% block styles %}
-      <link rel="stylesheet" href="{{ 'assets/stylesheets/main.a3f8f96a.min.css' | url }}">
+      <link rel="stylesheet" href="{{ 'assets/stylesheets/main.77f3fd56.min.css' | url }}">
       {% if config.theme.palette %}
         {% set palette = config.theme.palette %}
         <link rel="stylesheet" href="{{ 'assets/stylesheets/palette.7fa14f5b.min.css' | url }}">
@@ -93,7 +93,7 @@
   {% else %}
     <body dir="{{ direction }}">
   {% endif %}
-    {%  set features = config.theme.features or [] %}
+    {% set features = config.theme.features or [] %}
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
@@ -191,7 +191,7 @@
         "base": base_url,
         "features": features,
         "translations": {},
-        "search": "assets/javascripts/workers/search.217ffd95.min.js" | url,
+        "search": "assets/javascripts/workers/search.fb4a9340.min.js" | url,
         "version": config.extra.version or None
       } -%}
       {%- set translations = app.translations -%}
@@ -217,7 +217,7 @@
       </script>
     {% endblock %}
     {% block scripts %}
-      <script src="{{ 'assets/javascripts/bundle.926459b3.min.js' | url }}"></script>
+      <script src="{{ 'assets/javascripts/bundle.ca5457b8.min.js' | url }}"></script>
       {% for path in config["extra_javascript"] %}
         <script src="{{ path | url }}"></script>
       {% endfor %}

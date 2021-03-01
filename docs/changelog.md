@@ -6,6 +6,21 @@ template: overrides/main.html
 
 ## Material for MkDocs
 
+### 7.0.3 <small>_ February 26, 2021</small>
+
+- Fixed JavaScript errors in older browsers (target ES2020 -> ES2015)
+
+### 7.0.2 <small>_ February 25, 2021</small>
+
+- Fixed #2343: Invalid source map URLs for JS and CSS files
+- Fixed #2347: Version selector missing when using versioning
+
+### 7.0.1 <small>_ February 24, 2021</small>
+
+- Fixed #2334: Google Analytics triggers page view twice (7.0.0 regression)
+- Fixed #2336: Details bleed into inline admonitions
+- Fixed #2337: Images don't align correctly (7.0.0 regression)
+
 ### 7.0.0 <small>_ February 22, 2021</small>
 
 - Added support for deploying multiple versions
